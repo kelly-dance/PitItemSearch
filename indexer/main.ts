@@ -1,7 +1,7 @@
 import { getFriends, getPlayer, getKeyDelay } from './hypixel.ts';
 import { Item, players, items } from '../shared/database.ts';
 
-const rares = new Set<string>(JSON.parse(Deno.readTextFileSync('./keys.json')));
+const rares = new Set<string>(JSON.parse(Deno.readTextFileSync('./rares.json')));
 
 const queue: string[] = JSON.parse(Deno.readTextFileSync('./uuids.json'));
 
