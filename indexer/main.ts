@@ -24,7 +24,8 @@ const processPlayer = async (uuid: string) => {
 
       if(i.tag?.ExtraAttributes && !i.tag?.ExtraAttributes.bundle_contents) {
         const ex = i.tag?.ExtraAttributes;
-        const enchants: { version?: number, level: number, key: string }[] = ex.CustomEnchants.map((e: any) => ({
+        const rawEnchants: any[] = ex.CustomEnchants ?? [];
+        const enchants: { version?: number, level: number, key: string }[] = rawEnchants.map(e => ({
           version: e.Version,
           level: e.Level,
           key: e.Key,
