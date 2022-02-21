@@ -8,6 +8,8 @@ services:
     volumes:
       - './db:/data/db'
     container_name: 'mongo'
+    logging:
+      driver: none
   indexer:
     build: './indexer'
     restart: 'always'
@@ -15,4 +17,15 @@ services:
       - 'mongo'
     volumes:
       - './indexer:/indexer'
+      - './shared:/shared'
+  # web:
+  #   build: './web'
+  #   restart: 'always'
+  #   depends_on:
+  #     - 'mongo'
+  #   volumes:
+  #     - './web:/web'
+  #     - './shared:/shared'
+  #   ports:
+  #     - '8080:8080'
 
