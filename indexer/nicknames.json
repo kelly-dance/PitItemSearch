@@ -1,0 +1,562 @@
+{
+  "fishing_rod_enchant": [
+    "Club Rod"
+  ],
+  "stereo": [
+    "RARE! Stereo"
+  ],
+  "gold_strictly_kills": [
+    "Moctezuma",
+    "moct"
+  ],
+  "power_against_crits": [
+    "Critically Funky",
+    "cf",
+    "crit funky"
+  ],
+  "streak_xp": [
+    "Sweaty"
+  ],
+  "thorns": [
+    "Prick"
+  ],
+  "less_damage_vs_diamond_weapons": [
+    "Diamond Allergy",
+    "dallergy"
+  ],
+  "regen_when_hit": [
+    "Peroxide",
+    "pero"
+  ],
+  "gold_per_kill": [
+    "Gold Bump",
+    "gbump"
+  ],
+  "melee_damage_when_close_low_players": [
+    "Shark"
+  ],
+  "melee_combo_heal": [
+    "Combo: Heal",
+    "cheal"
+  ],
+  "less_damage_vs_bounties": [
+    "David and Goliath",
+    "dag"
+  ],
+  "eggs": [
+    "Eggs"
+  ],
+  "wood_blocks": [
+    "Creative"
+  ],
+  "pit_mba": [
+    "Pit MBA"
+  ],
+  "gold_boost": [
+    "Gold Boost",
+    "gboost"
+  ],
+  "melee_combo_speed": [
+    "Combo: Swift",
+    "cswift"
+  ],
+  "melee_bleed": [
+    "RARE! Hemorrhage",
+    "hemm"
+  ],
+  "gold_per_diamond_piece": [
+    "Sierra"
+  ],
+  "xp_per_kill": [
+    "XP Bump",
+    "xpbump"
+  ],
+  "less_damage_from_arrows": [
+    "Ring Armor"
+  ],
+  "martyrdom": [
+    "RARE! Martyrdom",
+    "marty"
+  ],
+  "melee_damage_vs_high_hp": [
+    "King Buster",
+    "kbuster"
+  ],
+  "melee_literally_p2w": [
+    "RARE! Billionaire",
+    "bill"
+  ],
+  "increased_blocking": [
+    "Bruiser"
+  ],
+  "melee_heal_on_kill": [
+    "Guts"
+  ],
+  "royalty": [
+    "Royalty"
+  ],
+  "melee_heal_on_hit": [
+    "Lifesteal",
+    "ls"
+  ],
+  "less_damage_nearby_players": [
+    "\"Not\" Gladiator",
+    "not glad",
+    "nglad"
+  ],
+  "resistance_when_low": [
+    "Last Stand",
+    "ls"
+  ],
+  "rgm": [
+    "RARE! Retro-Gravity Microcosm"
+  ],
+  "steaks_on_kill": [
+    "Steaks"
+  ],
+  "damage_reduction": [
+    "Protection",
+    "prot"
+  ],
+  "immune_true_damage": [
+    "Mirror"
+  ],
+  "respawn_with_absorption": [
+    "Respawn: Absorption"
+  ],
+  "max_bounty_self_claim": [
+    "Self-checkout",
+    "sco"
+  ],
+  "perma_speed": [
+    "Gotta go fast",
+    "gtgfast",
+    "g2gfast"
+  ],
+  "xp_boost": [
+    "XP Boost",
+    "xpboost"
+  ],
+  "solitude": [
+    "RARE! Solitude",
+    "soli"
+  ],
+  "somber": [
+    "Somber"
+  ],
+  "misery": [
+    "Misery"
+  ],
+  "mind_assault": [
+    "Mind Assault",
+    "ma"
+  ],
+  "less_damage_when_swimming": [
+    "McSwimmer"
+  ],
+  "melee_damage_when_absorption": [
+    "Gold and Boosted",
+    "g&b"
+  ],
+  "melee_healer": [
+    "RARE! Healer"
+  ],
+  "pants_radar": [
+    "Pants Radar"
+  ],
+  "gold_per_crit": [
+    "Critically Rich",
+    "crit rich",
+    "critch"
+  ],
+  "punch_once_in_a_while": [
+    "Push comes to shove",
+    "pcts",
+    "pc2s"
+  ],
+  "instant_shot": [
+    "RARE! Mega Longbow",
+    "mlb"
+  ],
+  "absorption_on_kill": [
+    "Golden Heart"
+  ],
+  "melee_damage_vs_low_hp": [
+    "Punisher"
+  ],
+  "melee_execute": [
+    "RARE! Executioner",
+    "exe"
+  ],
+  "higher_max_hp": [
+    "Hearts"
+  ],
+  "tnt": [
+    "TNT"
+  ],
+  "gold_per_hit": [
+    "Strike Gold"
+  ],
+  "bow_combo_speed": [
+    "Faster than their shadow",
+    "ftts"
+  ],
+  "explosive_bow": [
+    "RARE! Explosive",
+    "explo"
+  ],
+  "telebow": [
+    "RARE! Telebow",
+    "tele"
+  ],
+  "bow_slow": [
+    "Sprint Drain"
+  ],
+  "bow_spammer": [
+    "Spammer and Proud"
+  ],
+  "bow_damage": [
+    "Fletching"
+  ],
+  "lucky_shot": [
+    "RARE! Lucky Shot"
+  ],
+  "pickpocket": [
+    "Pitpocket"
+  ],
+  "melee_combo_damage": [
+    "Combo: Damage",
+    "cdamage"
+  ],
+  "counter_bounty_hunter": [
+    "Hunt the Hunter",
+    "hth"
+  ],
+  "instaboom_tnt": [
+    "RARE! Instaboom",
+    "insta"
+  ],
+  "pin_down": [
+    "Pin down"
+  ],
+  "jump_spammer": [
+    "Jumpspammer"
+  ],
+  "parasite": [
+    "Parasite",
+    "para"
+  ],
+  "pullbow": [
+    "RARE! Pullbow",
+    "pull"
+  ],
+  "melee_launch": [
+    "RARE! The Punch",
+    "punch"
+  ],
+  "less_damage_when_high_bounty": [
+    "Billy"
+  ],
+  "overheal_enchant": [
+    "Excess"
+  ],
+  "less_damage_on_grass": [
+    "Cricket"
+  ],
+  "melee_weakness": [
+    "Crush"
+  ],
+  "resistance_on_kill": [
+    "Counter-Janitor",
+    "cjanitor"
+  ],
+  "plain_melee_damage": [
+    "Sharp"
+  ],
+  "heigh_ho": [
+    "Heigh-Ho"
+  ],
+  "respawn_with_resistance": [
+    "Respawn: Resistance"
+  ],
+  "increase_gold_pickup": [
+    "Pebble"
+  ],
+  "refresh_speed_on_kill": [
+    "Electrolytes",
+    "electro"
+  ],
+  "melee_strike_after_block": [
+    "Duelist"
+  ],
+  "first_shot": [
+    "First Shot"
+  ],
+  "volley": [
+    "RARE! Volley"
+  ],
+  "bow_to_true_damage": [
+    "RARE! True Shot"
+  ],
+  "contract_rewards": [
+    "Negotiator",
+    "nego"
+  ],
+  "wolf_pack": [
+    "RARE! Wolf Pack"
+  ],
+  "paparazzi": [
+    "RARE! Paparazzi",
+    "papa"
+  ],
+  "chance_dont_lose_life": [
+    "RARE! Divine Miracle",
+    "divine"
+  ],
+  "passive_health_regen": [
+    "Boo-boo"
+  ],
+  "evil_within": [
+    "Evil Within"
+  ],
+  "bow_weakness_on_hit": [
+    "Wasp"
+  ],
+  "blocking_cancels_projectiles": [
+    "Bullet Time"
+  ],
+  "guardian": [
+    "Guardian"
+  ],
+  "sniper": [
+    "Sniper"
+  ],
+  "melee_damage_vs_diamond": [
+    "Diamond Stomp",
+    "dstomp"
+  ],
+  "do_it_like_the_french": [
+    "Do it like the French"
+  ],
+  "superspeed_when_low": [
+    "Danger Close"
+  ],
+  "regularity": [
+    "RARE! Regularity",
+    "reg"
+  ],
+  "singularity": [
+    "RARE! Singularity",
+    "sing"
+  ],
+  "gold_break_obsidian": [
+    "Purple Gold",
+    "pgold"
+  ],
+  "melee_lightning": [
+    "RARE! Combo: Perun's Wrath",
+    "perun"
+  ],
+  "sanguisuge": [
+    "Sanguisuge"
+  ],
+  "melee_damage_when_low": [
+    "Pain Focus",
+    "pf"
+  ],
+  "snowmen": [
+    "RARE! Snowmen Army"
+  ],
+  "really_toxic": [
+    "Really Toxic"
+  ],
+  "melee_damage_vs_bows": [
+    "Beat the Spammers"
+  ],
+  "gain_arrows_on_hit": [
+    "Bottomless Quiver",
+    "bottom"
+  ],
+  "melee_damage_when_on_grass": [
+    "Grasshopper"
+  ],
+  "arrow_true_damage": [
+    "Chipping",
+    "chip"
+  ],
+  "aegis": [
+    "Aegis"
+  ],
+  "sneak_teleport": [
+    "RARE! Assassin",
+    "ass"
+  ],
+  "melee_crit_midair": [
+    "Berserker",
+    "bers"
+  ],
+  "melee_avenge": [
+    "Revengeance"
+  ],
+  "explosive_chickens": [
+    "RARE! Devil Chicks!"
+  ],
+  "trash_panda": [
+    "RARE! Trash Panda"
+  ],
+  "spite": [
+    "Spite"
+  ],
+  "venom": [
+    "RARE! Combo: Venom"
+  ],
+  "trophy": [
+    "Trophy"
+  ],
+  "melee_gamble": [
+    "RARE! Gamble",
+    "gam"
+  ],
+  "melee_damage_vs_leather": [
+    "Fancy Raider"
+  ],
+  "combo_xp": [
+    "Combo: XP",
+    "cxp"
+  ],
+  "regen_speed_when_low": [
+    "Revitalize"
+  ],
+  "melee_stun": [
+    "RARE! Combo: Stun",
+    "cstun"
+  ],
+  "speed_when_hit_few_times": [
+    "Counter-Offensive"
+  ],
+  "water_bucket": [
+    "Portable Pond"
+  ],
+  "melee_damage_vs_bounties": [
+    "Bounty Reaper",
+    "breaper"
+  ],
+  "the_blob": [
+    "RARE! Pit Blob"
+  ],
+  "melee_knockback": [
+    "RARE! Knockback",
+    "kb"
+  ],
+  "brakes": [
+    "Brakes!"
+  ],
+  "fishing_rod_kb": [
+    "Rodback"
+  ],
+  "rogue": [
+    "Rogue"
+  ],
+  "heal_on_shoot_self": [
+    "What doesn't kill you",
+    "wdky"
+  ],
+  "worm": [
+    "Worm"
+  ],
+  "damage_per_arrow": [
+    "Arrow Armory",
+    "aa"
+  ],
+  "etspeed_on_kill": [
+    "Speedy Kill"
+  ],
+  "mixed_combat": [
+    "Mixed Combat"
+  ],
+  "melee_speed_on_hit": [
+    "RARE! Speedy Hit"
+  ],
+  "regen_when_ooc": [
+    "RARE! Gomraw's Heart",
+    "gomraw"
+  ],
+  "increase_armor_drops": [
+    "Lodbrok"
+  ],
+  "snowballs": [
+    "RARE! Snowballs"
+  ],
+  "new_deal": [
+    "New Deal"
+  ],
+  "grim_reaper": [
+    "Grim Reaper",
+    "gr"
+  ],
+  "lycanthropy": [
+    "Lycanthropy",
+    "lycan"
+  ],
+  "escape_pod": [
+    "RARE! Escape Pod"
+  ],
+  "hidden_jewel": [
+    "Hidden Jewel"
+  ],
+  "heartripper": [
+    "RARE! Heartripper"
+  ],
+  "tough_crew": [
+    "Tough Crew"
+  ],
+  "fractional_reserve": [
+    "Fractional Reserve",
+    "frac"
+  ],
+  "think_of_the_people": [
+    "RARE! Think of the People",
+    "totp"
+  ],
+  "sybil": [
+    "Sybil"
+  ],
+  "phoenix": [
+    "RARE! Phoenix"
+  ],
+  "breaching_charge": [
+    "Combo: Breaching Charge"
+  ],
+  "golden_handcuffs": [
+    "RARE! Golden Handcuffs",
+    "gcuffs"
+  ],
+  "luck_of_the_pond": [
+    "Luck of the Pond"
+  ],
+  "fishers_unite": [
+    "Unite"
+  ],
+  "ace_of_spades": [
+    "Ace of Spades"
+  ],
+  "needless_suffering": [
+    "Needless Suffering"
+  ],
+  "nostalgia": [
+    "RARE! Nostalgia"
+  ],
+  "gentlemen_agreement": [
+    "RARE! Deal with the Devil"
+  ],
+  "rod_true_damage": [
+    "Grandmaster"
+  ],
+  "hedge_fund": [
+    "Hedge Fund"
+  ],
+  "homing": [
+    "RARE! Robinhood",
+    "robin"
+  ]
+}

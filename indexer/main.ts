@@ -2,6 +2,14 @@ import { getFriends, getPlayer, getKeyDelay } from './hypixel.ts';
 import { Item, players, items } from '../shared/database.ts';
 
 const rares = new Set<string>(JSON.parse(Deno.readTextFileSync('./rares.json')));
+const nicknames: Record<string, undefined | string[]> = JSON.parse(Deno.readTextFileSync('./nicknames.json'));
+type McItem = {
+  type: number,
+  meta: number,
+  name: string,
+}
+const mcitems: McItem[] = JSON.parse(Deno.readTextFileSync('../shared/mcitems.json'));
+const colors = ['red', 'yellow', 'blue', 'orange', 'green'];
 
 const queue: string[] = JSON.parse(Deno.readTextFileSync('./uuids.json'));
 
@@ -21,6 +29,10 @@ const processPlayer = async (uuid: string) => {
     await items.deleteMany({ owner: player.uuid });
     const cleaned: Item[] = player.items.map(i => {
       let mysticProps: Item['mysticProps'] | undefined = undefined;
+
+      let mci = mcitems.find(mci => mci.type === i.id && mci.meta === (i.Damage ?? 0));
+      if(!mci) mci = mcitems.find(mci => mci.type === i.id);
+      if(!mci) mci = mcitems[0];
 
       if(i.tag?.ExtraAttributes && !i.tag?.ExtraAttributes.bundle_contents) {
         const ex = i.tag?.ExtraAttributes;
@@ -44,7 +56,31 @@ const processPlayer = async (uuid: string) => {
         }
       }
 
-      const cleanText = ((i.tag?.display?.Name ?? '') + '\n' + (i.tag?.display?.Lore?.join('\n') ?? '')).toLowerCase().replace(/§./g, '').trim();
+      let cleanText = '';
+      if(i.tag?.display?.Name) cleanText += `\n${i.tag.display.Name}`;
+      cleanText += `\n${player.name}`;
+      cleanText += `\n${mci.name}`;
+      if(i.tag?.Unbreakable) cleanText += '\nunbreakable';
+      if(mysticProps){
+        for(const ench of mysticProps.enchants){
+          cleanText += `\n${ench.key} ${ench.level}`;
+          nicknames[ench.key]?.forEach(n => cleanText += `\n${n} ${ench.level}`);
+        }
+        if(mysticProps.gemmed) cleanText += '\ngemmed';
+         cleanText += `\n${mysticProps.tokens} tokens`;
+         cleanText += `\n${mysticProps.lives} lives`;
+         cleanText += `\n${mysticProps.maxLives} max lives`;
+         cleanText += `\nlives: ${mysticProps.lives}/${mysticProps.maxLives}`;
+         cleanText += `\ntier ${mysticProps.tier}`;
+         if(mysticProps.nonce > 20) cleanText += `\n${colors[mysticProps.nonce % 5]}`;
+         cleanText += `\nnonce ${mysticProps.nonce}`;
+      }else{
+        if(i.tag?.display?.Lore) cleanText += `\n${i.tag.display.Lore.join('\n')}`;
+      }
+      cleanText += `\n${i.id}:${i.Damage ?? 0}`;
+      cleanText += `\ncount ${i.Count ?? 1}`;
+      cleanText = cleanText.trim().toLowerCase().replace(/§./g, '');
+      
 
       return {
         itemId: i.id,
@@ -52,7 +88,7 @@ const processPlayer = async (uuid: string) => {
         count: i.Count ?? 1,
         lastChecked: Date.now(),
         lastInPit: player.lastInPit,
-        name: i.tag?.display?.Name,
+        name: i.tag?.display?.Name ?? mci.name,
         lore: i.tag?.display?.Lore?.join('\n'),
         cleanText,
         owner: player.uuid,
