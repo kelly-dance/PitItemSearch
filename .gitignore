@@ -1,3 +1,4 @@
 db
 indexer/keys.json
 indexer/uuids.json
+.env

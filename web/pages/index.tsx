@@ -1,41 +1,45 @@
-import { useDeno } from 'aleph/react'
-import React from 'react'
-import Logo from '~/components/logo.tsx'
-import useCounter from '~/lib/useCounter.ts'
+import React from 'react';
+import { useTheme } from '~/lib/atoms.ts';
+import { Search } from '~/components/search.tsx';
+import { Results } from '~/components/results.tsx';
+import { Info } from '~/components/info.tsx';
 
 export default function Home() {
-  const [count, isSyncing, increase, decrease] = useCounter()
-  const version = useDeno(() => Deno.version.deno)
+  const theme = useTheme();
 
   return (
-    <div className="page">
+    <div
+      style={{
+
+      }}
+    >
       <head>
-        <title>Hello World - Aleph.js</title>
+        <title>PISS</title>
         <link rel="stylesheet" href="../style/index.css" />
+        <link rel="stylesheet" href="../style/items.css" />
+        <link rel="stylesheet" href="../style/minecraft.css" />
+        <style>
+          {`
+            body {
+              background-color: ${theme.background};
+            }
+          `}
+        </style>
       </head>
-      <p className="logo"><Logo /></p>
-      <h1>Welcome to use <strong>Aleph.js</strong>!</h1>
-      <p className="links">
-        <a href="https://alephjs.org" target="_blank">Website</a>
-        <span></span>
-        <a href="https://alephjs.org/docs/get-started" target="_blank">Get Started</a>
-        <span></span>
-        <a href="https://alephjs.org/docs" target="_blank">Docs</a>
-        <span></span>
-        <a href="https://github.com/alephjs/aleph.js" target="_blank">Github</a>
-      </p>
-      <div className="counter">
-        <span>Counter:</span>
-        {isSyncing && (
-          <em>...</em>
-        )}
-        {!isSyncing && (
-          <strong>{count}</strong>
-        )}
-        <button onClick={decrease}>-</button>
-        <button onClick={increase}>+</button>
+      <div style={{ height: '50px' }} />
+      <Search/>
+      <div style={{ height: '50px' }} />
+      <div style={{ margin: 'auto', position: 'relative', width: '0' }} >
+        <div style={{ position: 'absolute', top: '0', right: '20px', marginBottom: '250px' }}>
+          <Results/>
+        </div>
+        <div style={{ position: 'sticky', top: '30px', left: '20px' }}>
+          <Info/>
+        </div>
+        <div style={{visibility:'hidden'}}>
+          <Results lazy={true} />
+        </div>
       </div>
-      <p className="copyinfo">Built by Aleph.js in Deno {version}</p>
     </div>
   )
 }

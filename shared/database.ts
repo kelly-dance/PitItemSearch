@@ -1,47 +1,24 @@
-import {
-  Bson,
-  MongoClient,
-} from "https://deno.land/x/mongo@v0.29.2/mod.ts";
+import { MongoClient } from "https://deno.land/x/mongo@v0.29.2/mod.ts";
+import { Item, Player } from './types.ts';
+
 const client = new MongoClient();
-await client.connect("mongodb://mongo:27017");
-const db = client.database('itemsearch');
 
-export interface Player {
-  _id: string,
-  name: string,
-  lastChecked: number,
-  lastInPit: number,
-}
-
-export interface Item {
-  _id: Bson.ObjectId
-  itemId: number,
-  meta: number,
-  count: number,
-  name?: string,
-  lore?: string,
-  cleanText: string,
-  color?: string,
-  unbreakable: boolean,
-  mysticProps?: {
-    nonce: number,
-    lives: number,
-    tier: number,
-    maxLives: number,
-    gemmed: boolean,
-    tokens: number,
-    rareCount: number,
-    enchants: {
-      version?: number,
-      level: number,
-      key: string,
-    }[],
+await client.connect({
+  db: 'itemsearch',
+  servers: [
+    {
+      host: Deno.env.get('MONGO_HOST')!,
+      port: parseInt(Deno.env.get('MONGO_PORT')!),
+    },
+  ],
+  credential: {
+    username: Deno.env.get('DATABASE_USERNAME'),
+    password: Deno.env.get('DATABASE_PASSWORD'),
+    db: 'itemsearch',
+    mechanism: "SCRAM-SHA-1",
   },
-  owner: string,
-  ownerName: string,
-  lastChecked: number,
-  lastInPit: number,
-}
+})
+const db = client.database('itemsearch');
 
 export const players = db.collection<Player>("players");
 export const items = db.collection<Item>("items");
@@ -62,9 +39,11 @@ await items.createIndexes({
     { key: { 'mysticProps.gemmed': 1 }, name: 'gemmed', sparse: true },
     { key: { 'mysticProps.tokens': 1 }, name: 'tokens', sparse: true },
     { key: { 'mysticProps.rareCount': 1 }, name: 'rareCount', sparse: true },
-    { key: { 'mysticProps.enchants.version': 1 }, name: 'ench_ver', sparse: true },
-    { key: { 'mysticProps.enchants.level': 1 }, name: 'ench_level', sparse: true },
-    { key: { 'mysticProps.enchants.key': 1 }, name: 'ench_key', sparse: true },
+    { key: { 'mysticProps.enchants.key': 1 }, name: 'enchKey', sparse: true },
+    { key: { 'mysticProps.enchants.level': 1 }, name: 'enchLevel', sparse: true },
+    { key: { 'mysticProps.enchants.version': 1 }, name: 'enchVer', sparse: true },
+    { key: { 'vanillaEnchants.key': 1 }, name: 'vanillaEnchKey', sparse: true },
+    { key: { 'vanillaEnchants.level': 1 }, name: 'vanillaEnchLevel', sparse: true },
   ]
 })
 

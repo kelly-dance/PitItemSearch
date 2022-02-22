@@ -69,7 +69,7 @@ export const getPlayer = async (uuid: string): Promise<Player | undefined> => {
   const res = await fetch(`https://api.hypixel.net/player?key=${getKey()}&uuid=${uuid}`);
   const json: HypixelResponse<PlayerResponse> = await res.json();
   if(!json.success) return undefined;
-  if(!json.player.stats.Pit) return undefined;
+  if(!json?.player?.stats?.Pit) return undefined;
   const profile = json.player.stats.Pit.profile;
   if(profile.spire_stash) {
     return {

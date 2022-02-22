@@ -1,5 +1,6 @@
 import { getFriends, getPlayer, getKeyDelay } from './hypixel.ts';
-import { Item, players, items } from '../shared/database.ts';
+import { players, items } from '../shared/database.ts';
+import { Item } from '../shared/types.ts';
 
 const rares = new Set<string>(JSON.parse(Deno.readTextFileSync('./rares.json')));
 const nicknames: Record<string, undefined | string[]> = JSON.parse(Deno.readTextFileSync('./nicknames.json'));
@@ -10,6 +11,30 @@ type McItem = {
 }
 const mcitems: McItem[] = JSON.parse(Deno.readTextFileSync('../shared/mcitems.json'));
 const colors = ['red', 'yellow', 'blue', 'orange', 'green'];
+type McEnch = {
+  id: number,
+  name: string,
+  displayName: string,
+}
+const mcenchs: McEnch[] = JSON.parse(Deno.readTextFileSync('../shared/mcenchs.json'));
+
+const romanNum = (int: number) => {
+  let roman = '';
+  roman += 'M'.repeat(int / 1000); int %= 1000;
+  roman += 'CM'.repeat(int / 900); int %= 900;
+  roman += 'D'.repeat(int / 500); int %= 500;
+  roman += 'CD'.repeat(int / 400); int %= 400;
+  roman += 'C'.repeat(int / 100); int %= 100;
+  roman += 'XC'.repeat(int / 90); int %= 90;
+  roman += 'L'.repeat(int / 50); int %= 50;
+  roman += 'XL'.repeat(int / 40); int %= 40;
+  roman += 'X'.repeat(int / 10); int %= 10;
+  roman += 'IX'.repeat(int / 9); int %= 9;
+  roman += 'V'.repeat(int / 5); int %= 5;
+  roman += 'IV'.repeat(int / 4); int %= 4;
+  roman += 'I'.repeat(int);
+  return roman;
+};
 
 const queue: string[] = JSON.parse(Deno.readTextFileSync('./uuids.json'));
 
@@ -57,6 +82,16 @@ const processPlayer = async (uuid: string) => {
       }
 
       let cleanText = '';
+
+      let lore = i.tag?.display?.Lore?.join('\n') ?? '';
+      for(const ench of i.tag?.ench ?? []){
+        const mcench = mcenchs.find(m => m.id === ench.id);
+        if(!mcench) continue;
+        lore += `\n${mcench.displayName} ${romanNum(ench.lvl)}`;
+        cleanText += `\nvanilla ${mcench.name} ${ench.lvl} `;
+        cleanText += `\nvanilla ${mcench.displayName} ${ench.lvl} `;
+      }
+
       if(i.tag?.display?.Name) cleanText += `\n${i.tag.display.Name}`;
       cleanText += `\n${player.name}`;
       cleanText += `\n${mci.name}`;
@@ -75,10 +110,10 @@ const processPlayer = async (uuid: string) => {
          if(mysticProps.nonce > 20) cleanText += `\n${colors[mysticProps.nonce % 5]}`;
          cleanText += `\nnonce ${mysticProps.nonce}`;
       }else{
-        if(i.tag?.display?.Lore) cleanText += `\n${i.tag.display.Lore.join('\n')}`;
+        if(lore) cleanText += `\n${lore}`;
       }
       cleanText += `\n${i.id}:${i.Damage ?? 0}`;
-      cleanText += `\ncount ${i.Count ?? 1}`;
+      cleanText += `\ncount ${i.Count ?? 1} count`;
       cleanText = cleanText.trim().toLowerCase().replace(/§./g, '');
       
 
@@ -89,7 +124,7 @@ const processPlayer = async (uuid: string) => {
         lastChecked: Date.now(),
         lastInPit: player.lastInPit,
         name: i.tag?.display?.Name ?? mci.name,
-        lore: i.tag?.display?.Lore?.join('\n'),
+        lore,
         cleanText,
         owner: player.uuid,
         ownerName: player.name,
