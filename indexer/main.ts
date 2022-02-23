@@ -145,32 +145,24 @@ while(true){
   const delay = getKeyDelay();
   const uuid = queue.shift();
   if(!uuid) break;
-  const inDb = await players.findOne({ _id: uuid });
-  if(!inDb) {
-    console.log(`${uuid} ${queue.length}`)
-    processPlayer(uuid);
-  }else{
-    console.log(`skip ${uuid} ${queue.length}`);
-    continue;
-  }
+  console.log(`${uuid} ${queue.length}`)
+  processPlayer(uuid);
   await delay;
 }
 
-while(true) await getKeyDelay();
-
-// while(true){
-//   const delay = getKeyDelay()
-//   if(queue.length === 0){
-//     console.log('Empty');
-//     const aggResult = await players.aggregate([{ $sample: { size: 1 } }]).toArray();
-//     const randomPlayer = aggResult[0];
-//     if(!randomPlayer) throw new Error();
-//     const friends = await getFriends(randomPlayer._id);
-//     queue.push(randomPlayer._id, ...friends.slice(0, 100));
-//   }else{
-//     const uuid = queue.shift()!;
-//     console.log(`${uuid} ${queue.length}`)
-//     processPlayer(uuid);
-//   }
-//   await delay;
-// }
+while(true){
+  const delay = getKeyDelay()
+  if(queue.length === 0){
+    console.log('Empty');
+    const aggResult = await players.aggregate([{ $sample: { size: 1 } }]).toArray();
+    const randomPlayer = aggResult[0];
+    if(!randomPlayer) throw new Error();
+    const friends = await getFriends(randomPlayer._id);
+    queue.push(randomPlayer._id, ...friends.slice(0, 100));
+  }else{
+    const uuid = queue.shift()!;
+    console.log(`${uuid} ${queue.length}`)
+    processPlayer(uuid);
+  }
+  await delay;
+}
