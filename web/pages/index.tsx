@@ -3,11 +3,13 @@ import { useTheme } from '~/lib/atoms.ts';
 import { Search } from '~/components/search.tsx';
 import { Results } from '~/components/results.tsx';
 import { Info } from '~/components/info.tsx';
+import { HoverDesc } from '~/components/hoverdesc.tsx';
 
 export default function Home() {
   const theme = useTheme();
 
   return (
+    <React.StrictMode>
     <div
       style={{
 
@@ -26,6 +28,7 @@ export default function Home() {
           `}
         </style>
       </head>
+      <div style={{ position: 'sticky', zIndex: 100 }}><HoverDesc /></div>
       <div style={{ height: '50px' }} />
       <Search/>
       <div style={{ height: '50px' }} />
@@ -36,10 +39,11 @@ export default function Home() {
         <div style={{ position: 'sticky', top: '30px', left: '20px' }}>
           <Info/>
         </div>
-        <div style={{visibility:'hidden'}}>
+        <div style={{ visibility: 'hidden' }}>
           <Results lazy={true} />
         </div>
       </div>
     </div>
+    </React.StrictMode>
   )
 }

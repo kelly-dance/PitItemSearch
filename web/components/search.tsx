@@ -44,6 +44,7 @@ export const Search = () => {
         display: 'block',
         padding: '10px',
         color: theme.altText,
+        fontFamily: 'Minecraftia'
       }}
     />
   )

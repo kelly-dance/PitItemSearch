@@ -34,22 +34,22 @@ services:
       - MONGO_PASSWORD=$DATABASE_PASSWORD
       - MONGO_PORT=$MONGO_PORT
       - MONGO_HOST=$MONGO_HOST
-  # web:
-  #   build: './web'
-  #   restart: 'always'
-  #   volumes:
-  #     - './web:/web'
-  #     - './shared:/shared'
-  #   ports:
-  #     - '8080:8080'
-  #   depends_on:
-  #     - 'mongo'
-  #   links:
-  #     - 'mongo'
-  #   env_file: .env
-  #   environment:
-  #     - MONGO_USERNAME=$DATABASE_USERNAME
-  #     - MONGO_PASSWORD=$DATABASE_PASSWORD
-  #     - MONGO_PORT=$MONGO_PORT
-  #     - MONGO_HOST=$MONGO_HOST
+  web:
+    build: './web'
+    restart: 'always'
+    volumes:
+      - './web:/web'
+      - './shared:/shared'
+    ports:
+      - '8080:8080'
+    depends_on:
+      - 'mongo'
+    links:
+      - 'mongo'
+    env_file: .env
+    environment:
+      - MONGO_USERNAME=$DATABASE_USERNAME
+      - MONGO_PASSWORD=$DATABASE_PASSWORD
+      - MONGO_PORT=$MONGO_PORT
+      - MONGO_HOST=$MONGO_HOST
 

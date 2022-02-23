@@ -14,3 +14,31 @@ body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
 }
+
+@font-face {
+  font-family: "Minecraftia";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/Minecraft-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Minecraftia";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/minecraft-bold.otf") format("opentype")
+}
+
+@font-face {
+  font-family: "Minecraftia";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/minecraft-italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Minecraftia";
+  font-style: italic;
+  font-weight: 700;
+  src: url("/minecraft-bold-italic.otf") format("opentype");
+}

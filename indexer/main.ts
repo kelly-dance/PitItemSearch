@@ -36,6 +36,10 @@ const romanNum = (int: number) => {
   return roman;
 };
 
+export const toHex = (num: number) => {
+  return "#" + num.toString(16).padStart(6, '0');
+}
+
 const queue: string[] = JSON.parse(Deno.readTextFileSync('./uuids.json'));
 
 const processPlayer = async (uuid: string) => {
@@ -129,7 +133,7 @@ const processPlayer = async (uuid: string) => {
         owner: player.uuid,
         ownerName: player.name,
         unbreakable: !!i.tag?.Unbreakable,
-        color: i.tag?.color,
+        color: i.tag?.display?.color ? toHex(i.tag.display.color) : undefined,
         mysticProps,
       }
     }).filter(a => !!a) as Item[];

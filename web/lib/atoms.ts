@@ -1,5 +1,6 @@
+import { RefObject } from 'react';
 import { Item } from '../../shared/types.ts';
-import { Atom, atom, selector, writeSelector, useAtom, useSelector } from './recoil.ts';
+import { Atom, atom, selector, writeSelector, useAtom, useSelector, defaultCompare } from './recoil.ts';
 
 type Theme = {
   background: string,
@@ -50,3 +51,10 @@ export const useResultIndex = (index: number) => useSelector(resultIndexSelector
 
 export const selectedItemAtom = atom<Item | undefined>(undefined);
 export const useSelectedItem = () => useAtom(selectedItemAtom);
+
+export type HoverInfo = {
+  ref: RefObject<HTMLDivElement>,
+  item: Item,
+}
+export const hoveredItemAtom = atom<HoverInfo | undefined>(undefined, (a, b) => defaultCompare(a?.item, b?.item));
+export const useHoveredItem = () => useAtom(hoveredItemAtom);
